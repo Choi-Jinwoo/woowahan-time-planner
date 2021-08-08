@@ -2,12 +2,12 @@ import React from 'react';
 
 import './assets/styles/reset.css';
 import './assets/styles/root.css';
-import CategoryDropDown from './components/CategoryDropDown';
+import Plan from './components/Plan';
 
 const App = (): JSX.Element => {
   return (
     <div>
-      <CategoryDropDown />
+      <Plan />
     </div>
   )
 }

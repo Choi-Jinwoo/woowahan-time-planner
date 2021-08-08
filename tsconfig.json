@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+  },
+  "include": ["src", "custom.d.ts"]
 }

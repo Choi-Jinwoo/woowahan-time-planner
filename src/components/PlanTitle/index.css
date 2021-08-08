@@ -1,0 +1,17 @@
+.plan-title {
+  display: flex;
+  align-items: center;
+}
+
+.plan-title__text {
+  font-size: var(--big-text);
+}
+
+.plan-title__title {
+  outline: none;
+  min-width: 10px;
+}
+
+.plan-title__title:focus {
+  color: var(--placeholder);
+}

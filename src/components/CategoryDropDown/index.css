@@ -1,5 +1,5 @@
 .category {
-  width: 200px;
+  width: 180px;
   position: relative;
 }
 
@@ -12,12 +12,22 @@
 .category-selected {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 12px 8px;
+  justify-content: space-between;
+  padding: 10px 8px;
   cursor: pointer;
   border: 1px solid var(--border);
   background-color: var(--background);
   border-radius: 8px;
+}
+
+.category-selected__category {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.category-selected > img {
+  width: 16px;
 }
 
 .category-selected__color {
@@ -25,6 +35,9 @@
 }
 
 .category-list {
+  box-shadow: rgb(0 0 0 / 15%) 0px 8px 8px;
+  border-radius: 8px;
+  z-index: 2;
   position: absolute;
   margin-top: 10px;
   width: 100%;

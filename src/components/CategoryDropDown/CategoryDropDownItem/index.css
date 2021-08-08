@@ -3,10 +3,11 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 12px 8px;
+  padding: 10px 8px;
   cursor: pointer;
   border: 1px solid var(--border);
   border-bottom: none;
+  background-color: var(--background);
 }
 
 .category-item:last-child {

@@ -1,0 +1,16 @@
+.plan-item {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.plan-item__content {
+  padding: 10px 8px;
+  width: 300px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--background);
+  font-size: var(--regular-text);
+  outline: none;
+  margin-left: 8px;
+}

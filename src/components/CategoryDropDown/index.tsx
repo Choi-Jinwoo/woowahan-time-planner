@@ -1,20 +1,27 @@
 import React, { useCallback, useEffect,  useRef, useState } from 'react';
 import categories from '../../assets/data/categories';
-import useSelect from '../../hook/useSelect';
 import { Category } from '../../types/category';
 import CategoryDropDownItem from './CategoryDropDownItem';
+import arrowDown from '../../assets/svg/arrow-down.svg';
 
 import './index.css';
 
-const CategoryDropDown = (): JSX.Element => {
-  const [selected, , handleSelect] = useSelect<Category>();
-  const [isListShow, setListShow] = useState<boolean>(true);
+type PropTypes = {
+  category: Category | undefined;
+  onCategoryChange: (item: Category) => void;
+}
+
+const CategoryDropDown = ({
+  category,
+  onCategoryChange,
+}: PropTypes): JSX.Element => {
+  const [isListShow, setListShow] = useState<boolean>(false);
   const categoryElement = useRef<HTMLDivElement>(null);
 
   const handleItemClick = useCallback((key: string) => {
-    handleSelect(categories[key]);
+    onCategoryChange(categories[key]);
     setListShow(false);
-  }, [handleSelect]);
+  }, [onCategoryChange]);
 
   const handleSelectedClick = useCallback(() => {
     setListShow(prev => !prev);
@@ -47,8 +54,11 @@ const CategoryDropDown = (): JSX.Element => {
   return (
     <div className="category" ref={categoryElement}>
       <div className="category-selected" onClick={handleSelectedClick}>
-        <div className="category__color category-selected__color" style={{ backgroundColor: selected?.color }}></div>
-        <span className="category__label">{selected?.label ?? '선택해주세요'}</span>
+        <div className="category-selected__category">
+          <div className="category__color category-selected__color" style={{ backgroundColor: category?.color }}></div>
+          <span className="category__label">{category?.label ?? '선택해주세요'}</span>
+        </div>
+        <img src={arrowDown} alt="" />
       </div>
       <ul className="category-list" hidden={!isListShow}>
         {categoryDropDownItems}

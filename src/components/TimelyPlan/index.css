@@ -1,0 +1,12 @@
+.timely-plan {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  width: 100%;
+}
+
+.timely-plan__time-section {
+  width: 150px;
+  font-size: var(--medium-text);
+  font-weight: bold;
+}
