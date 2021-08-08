@@ -1,14 +1,22 @@
 {
   "study": {
     "label": "공부",
-    "color": ""
+    "color": "#4c17d4"
   },
   "development": {
     "label": "개발",
-    "color": ""
+    "color": "#0085ff"
   },
   "meeting": {
     "label": "회의",
-    "color": ""
+    "color": "#e8bf0a"
   },
+  "pair": {
+    "label": "페어 프로그래밍",
+    "color": "#0ecec4"
+  },
+  "etc": {
+    "label": "기타",
+    "color": "#b0c4de"
+  }
 }
