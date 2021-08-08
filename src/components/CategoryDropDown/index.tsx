@@ -1,19 +1,20 @@
 import React, { useCallback, useEffect,  useRef, useState } from 'react';
 import categories from '../../assets/data/categories';
+import useSelect from '../../hook/useSelect';
 import { Category } from '../../types/category';
 import CategoryDropDownItem from './CategoryDropDownItem';
 
 import './index.css';
 
 const CategoryDropDown = (): JSX.Element => {
-  const [selected, setSelected] = useState<Category>();
+  const [selected, , handleSelect] = useSelect<Category>();
   const [isListShow, setListShow] = useState<boolean>(true);
   const categoryElement = useRef<HTMLDivElement>(null);
 
   const handleItemClick = useCallback((key: string) => {
-    setSelected(categories[key]);
+    handleSelect(categories[key]);
     setListShow(false);
-  }, []);
+  }, [handleSelect]);
 
   const handleSelectedClick = useCallback(() => {
     setListShow(prev => !prev);
