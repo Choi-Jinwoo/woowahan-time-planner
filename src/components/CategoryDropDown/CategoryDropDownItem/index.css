@@ -1,0 +1,29 @@
+.category-item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px 8px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  border-bottom: none;
+}
+
+.category-item:last-child {
+  border-bottom: 1px solid var(--border);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.category-item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.category-item:hover {
+  background-color: var(--hover);
+}
+
+.category-item__color {
+  margin-right: 8px;
+}

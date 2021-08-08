@@ -1,0 +1,31 @@
+.category {
+  width: 200px;
+  position: relative;
+}
+
+.category__color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.category-selected {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px 8px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background-color: var(--background);
+  border-radius: 8px;
+}
+
+.category-selected__color {
+  margin-right: 8px;
+}
+
+.category-list {
+  position: absolute;
+  margin-top: 10px;
+  width: 100%;
+}

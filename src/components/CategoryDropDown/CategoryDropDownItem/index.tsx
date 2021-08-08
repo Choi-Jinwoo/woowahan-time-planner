@@ -1,26 +1,31 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { Category } from '../../../types/category';
 
+import './index.css';
+
 type PropTypes = {
-  key: string;
+  cid: string;
   category: Category;
   onClick: (key: string) => void;
 }
 
 const CategoryDropDownItem = ({
-  key,
+  cid,
   category,
   onClick,
-}: PropTypes) => {
+}: PropTypes): JSX.Element => {
   const handleClick = useCallback(() => {
-    onClick(key);
-  }, [key, onClick]);
+    onClick(cid);
+  }, [cid, onClick]);
 
   const { color, label } = category;
+
   return (
     <li className="category-item" onClick={handleClick}>
-      <div className="category-item__color" style={{ backgroundColor: color }} />
-      <span className="category-item__label">{label}</span>
+      <div className="category__color category-item__color" style={{ backgroundColor: color }} />
+      <span className="category__label">{label}</span>
     </li>
   )
 }
+
+export default CategoryDropDownItem;
