@@ -1,0 +1,14 @@
+{
+  "study": {
+    "label": "공부",
+    "color": ""
+  },
+  "development": {
+    "label": "개발",
+    "color": ""
+  },
+  "meeting": {
+    "label": "회의",
+    "color": ""
+  },
+}

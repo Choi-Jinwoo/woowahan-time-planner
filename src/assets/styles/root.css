@@ -1,0 +1,12 @@
+:root {
+  --black: #24292E;
+  --border: #E1E4E8;
+  --hover: #F3F4F6;
+  --background: #F6F8FA;
+  --white: #FFFFFF;
+
+  --small-text: 14px;
+  --regular-text: 16px;
+  --medium-text: 18px;
+  --big-text: 24px;
+}
