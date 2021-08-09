@@ -59,8 +59,10 @@ const Plan = (): JSX.Element => {
     navigator.clipboard.writeText(markDown);
   }, [handleConvert2MarkDown]);
 
-  const timelyPlans = timeSections.map((timeSection) => {
+  const timelyPlans = timeSections.map((timeSection, index) => {
     return <TimelyPlan
+      todayTabIndex={index + 1}
+      tomorrowTabIndex={index + timeSections.length + 1}
       key={timeSection}
       timeSection={timeSection}
       todayPlans={todayPlans}
@@ -75,10 +77,13 @@ const Plan = (): JSX.Element => {
         <PlanTitle title={title} onChange={onTitleChange} />
         {timelyPlans}
       </div>
-      <div className="bottom">
-        <textarea value={feeling} onChange={onFeelingChange}/>
-        <div className="button-wrapper">
-          <button onClick={handleCopyClick}>복사</button>
+      <div className="bottom-wrapper">
+        <h2>느낀점</h2>
+        <div className="bottom">
+          <textarea value={feeling} onChange={onFeelingChange}/>
+          <div className="button-wrapper">
+            <button onClick={handleCopyClick}>복사</button>
+          </div>
         </div>
       </div>
     </div>

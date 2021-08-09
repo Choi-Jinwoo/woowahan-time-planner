@@ -1,6 +1,11 @@
 import { Category } from '../../types/category';
 
 const categories: { [key: string]: Category } = {
+  lecture: {
+    'key': 'lecture',
+    'label': '수업',
+    'color': '#368B85'
+  },
   study: {
     'key': 'study',
     'label': '공부',

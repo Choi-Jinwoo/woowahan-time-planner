@@ -9,6 +9,7 @@ type PropTypes = {
   onCategoryChange: (category: Category) => void;
   content: string | undefined;
   onContentChange: (value: string) => void;
+  tabIndex: number;
 }
 
 const PlanItem = ({
@@ -16,6 +17,7 @@ const PlanItem = ({
   onCategoryChange,
   content,
   onContentChange,
+  tabIndex,
 }: PropTypes): JSX.Element => {
   const handleContentChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     onContentChange(e.target.value);
@@ -24,7 +26,7 @@ const PlanItem = ({
   return (
     <div className="plan-item">
       <CategoryDropDown category={category} onCategoryChange={onCategoryChange}/>
-      <input className="plan-item__content" value={content} onChange={handleContentChange} />
+      <input tabIndex={tabIndex} className="plan-item__content" value={content} onChange={handleContentChange} />
     </div>
   )
 }

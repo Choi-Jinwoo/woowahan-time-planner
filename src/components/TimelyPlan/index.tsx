@@ -11,6 +11,8 @@ type PropTypes = {
   setTodayPlans: Dispatch<SetStateAction<{ [key: string]: Plan }>>;
   tomorrowPlans: { [key: string]: Plan };
   setTomorrowPlans: Dispatch<SetStateAction<{ [key: string]: Plan }>>;
+  todayTabIndex: number;
+  tomorrowTabIndex: number;
 }
 
 const TimelyPlan = ({
@@ -18,7 +20,9 @@ const TimelyPlan = ({
   todayPlans,
   setTodayPlans,
   tomorrowPlans,
-  setTomorrowPlans
+  setTomorrowPlans,
+  todayTabIndex,
+  tomorrowTabIndex,
 }: PropTypes): JSX.Element => {
   const todayPlan = useMemo(() => todayPlans[timeSection], [todayPlans, timeSection]);
   const todayCategory: Category | undefined = useMemo(() => todayPlan?.category, [todayPlan]);
@@ -71,11 +75,13 @@ const TimelyPlan = ({
     <div className="timely-plan">
       <div className="timely-plan__time-section">{timeSection}</div>
       <PlanItem category={todayCategory}
+        tabIndex={todayTabIndex}
         onCategoryChange={handleTodayCategoryChange}
         content={todayContent}
         onContentChange={handleTodayContentChange}/>
 
       <PlanItem category={tomorrowCategory}
+        tabIndex={tomorrowTabIndex}
         onCategoryChange={handleTomorrowCategoryChange}
         content={tomorrowContent}
         onContentChange={handleTomorrowContentChange}/>

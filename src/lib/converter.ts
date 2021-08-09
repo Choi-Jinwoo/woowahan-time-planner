@@ -64,12 +64,12 @@ export const convert2MarkDown = (dailyPlan: DailyPlan): string => {
   ### 오늘
   ${Object.values(todayCategories).map((value) => {
     return `${value.label}: ${value.count}시간`;
-  }).join("'")}
+  }).join('<br>')}
 
   ### 내일
   ${Object.values(tomorrowCategories).map((value) => {
     return `${value.label}: ${value.count}시간`;
-  }).join("'")}
+  }).join('<br>')}
 
   ## 느낀점
   ${feeling}`;
