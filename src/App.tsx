@@ -2,13 +2,11 @@ import React from 'react';
 
 import './assets/styles/reset.css';
 import './assets/styles/root.css';
-import Plan from './components/Plan';
+import MainPage from './pages/Main';
 
 const App = (): JSX.Element => {
   return (
-    <div>
-      <Plan />
-    </div>
+    <MainPage />
   )
 }
 

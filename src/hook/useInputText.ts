@@ -1,6 +1,6 @@
 import {  Dispatch, FormEvent, SetStateAction, useCallback, useState,  } from 'react'
 
-const useInputText = (value: string): [string, Dispatch<SetStateAction<string>>, (e: FormEvent<HTMLInputElement>) => void]=> {
+const useInputText = (value: string): [string, Dispatch<SetStateAction<string>>, (e: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void]=> {
   const [state, setState] = useState<string>(value);
 
   const handleChange = useCallback((e) => {

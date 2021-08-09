@@ -37,9 +37,10 @@ const Plan = (): JSX.Element => {
   const [title, , onTitleChange] = useInputText(currentMonthDate);
   const [todayPlans, setTodayPlans] = useState<{ [key: string]: Plan }>(timeSectionsKeyOfObject);
   const [tomorrowPlans, setTomorrowPlans] = useState<{ [key: string]: Plan }>(timeSectionsKeyOfObject);
+  const [feeling, , onFeelingChange] = useInputText('');
   
 
-  const handleSubmitClick = useCallback(() => {
+  const handleConvert2MarkDown = useCallback(() => {
     const todayPlan = convertPlanObject2Array(todayPlans)
     const tomorrowPlan = convertPlanObject2Array(tomorrowPlans);
 
@@ -47,13 +48,16 @@ const Plan = (): JSX.Element => {
       title,
       todayPlan,
       tomorrowPlan,
-      feeling: ''
+      feeling,
     }
 
-    console.log(dailyPlan);
-    
-    console.log(convert2MarkDown(dailyPlan));
-  }, [todayPlans, tomorrowPlans, title]);
+    return convert2MarkDown(dailyPlan);
+  }, [todayPlans, tomorrowPlans, title, feeling]);
+
+  const handleCopyClick = useCallback(() => {
+    const markDown = handleConvert2MarkDown();
+    navigator.clipboard.writeText(markDown);
+  }, [handleConvert2MarkDown]);
 
   const timelyPlans = timeSections.map((timeSection) => {
     return <TimelyPlan
@@ -67,9 +71,16 @@ const Plan = (): JSX.Element => {
 
   return (
     <div className="plan">
-      <button onClick={handleSubmitClick}>출력</button>
-      <PlanTitle title={title} onChange={onTitleChange} />
-      {timelyPlans}
+      <div>
+        <PlanTitle title={title} onChange={onTitleChange} />
+        {timelyPlans}
+      </div>
+      <div className="bottom">
+        <textarea value={feeling} onChange={onFeelingChange}/>
+        <div className="button-wrapper">
+          <button onClick={handleCopyClick}>복사</button>
+        </div>
+      </div>
     </div>
   )
 }
