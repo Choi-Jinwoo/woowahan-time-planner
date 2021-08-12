@@ -1,3 +1,4 @@
+# prettier-ignore
 name: ESLint
 
 on:
@@ -9,12 +10,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-  steps:
-  - uses: actions/checkout@v1
-  - name: Use Node
-    uses: actions/setup-node@v1
-  - name: npm install
-    run: npm i
-  - name: npm run lint
-    run: npm run lint
+  strategy:
+    matrix:
+      node-version: [10.x, 12.x, 14.x]
 
+  steps:
+  - uses: actions/checkout@v2
+  - name: Use Node.JS ${{ matrix.node-version }}
+    uses: actions/setup-node@v1
+    with:
+      node-version: ${{ matrix.node-version }}
+  - run: npm ci
+  - run: npm run lint
