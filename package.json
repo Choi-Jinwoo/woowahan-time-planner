@@ -9,9 +9,10 @@
     "build": "webpack build  --config webpack.config.prod.js",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
-    "lint": "eslint src/**/*.ts src/**/*.tsx"
+    "lint": "eslint 'src/**/*.ts' 'src/**/*.tsx'"
   },
   "dependencies": {
+    "eslint-plugin-react": "^7.24.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -22,7 +23,6 @@
     "@typescript-eslint/parser": "^4.29.0",
     "css-loader": "^6.2.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.2.0",
     "gh-pages": "^3.2.3",
