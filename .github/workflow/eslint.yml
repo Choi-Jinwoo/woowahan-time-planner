@@ -1,0 +1,19 @@
+name: ESLint
+
+on:
+  pull-request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  steps:
+    - uses: actions/checkout@v1
+    - name: Use Node
+      uses: actions/setup-node@v1
+    - name: npm install
+      run: npm i
+    - name: npm run lint
+      run: npm run lint
